@@ -44,7 +44,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: target
-          key: clippy-target-${{ runner.os }}-${{ steps.rust-version.outputs.version }}-${{ hashFiles('Cargo.lock') }}y
+          key: clippy-target-${{ runner.os }}-${{ steps.rust-version.outputs.version }}-${{ hashFiles('Cargo.lock') }}
       - run: cargo clippy --all --all-targets
 
   test:
@@ -73,7 +73,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: target
-          key: test-target-${{ runner.os }}-${{ steps.rust-version.outputs.version }}-${{ hashFiles('Cargo.lock') }}y
+          key: test-target-${{ runner.os }}-${{ steps.rust-version.outputs.version }}-${{ hashFiles('Cargo.lock') }}
       - run: cargo test --all
       - run: cargo test --manifest-path tokio-postgres/Cargo.toml --no-default-features
       - run: cargo test --manifest-path tokio-postgres/Cargo.toml --all-features
